@@ -1,6 +1,6 @@
 import Board from "./components/Board"
 import Controls from "./components/Controls"
-import { useGameOfLife } from "./hooks/useGameofLife";
+import { useGameOfLife } from "./hooks/useGameOfLife";
 
 const rows = 25;
 const cols = 25;
