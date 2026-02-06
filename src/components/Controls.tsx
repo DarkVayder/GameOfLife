@@ -12,12 +12,41 @@ type props = {
 
 export default function Controls({ running, toggleRun, clear, random }: props) {
     return (
-        <div style={{marginBottom: 20}}>
-            <button onClick={ toggleRun}>
+        <>
+        <div className="controls-wrapper">
+            <div className="controls">
+            <button onClick={random}> <GiPerspectiveDiceSixFacesRandom/> Random </button>            
+            <button onClick={clear}><CiTrash/>Clear</button>
+            <button onClick={ toggleRun} className="primary">
               {running ? <FaPauseCircle/> : <FaPlay/> }  
+              {running ? "Pause" : "Continue"}
             </button>
-            <button onClick={clear}><CiTrash/></button>
-            <button onClick={random}> <GiPerspectiveDiceSixFacesRandom/></button>
+            </div>
         </div>
-    )
+        <style>{`
+        .controls-wrapper {
+        margin-bottom: 20px}
+        
+        .controls{
+        display:flex;
+        justify-content:center;
+        gap: 12px;
+        }
+        button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 7px;
+        font-size:12px;
+        border-radius:8px;
+        cursor:pointer;
+        transition: all 0.1s ease
+        }
+
+        button:hover{
+        background:#f5f5f5
+        transform: translateY(-1px);}
+        `}</style>
+    </>
+    );
 }
